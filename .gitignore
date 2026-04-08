@@ -1,6 +1,7 @@
 # Mengabaikan file koneksi database (Sangat Penting!)
-conection/koneksi.php
-config/config.php
+conection/conection.php
+config/app.php
+config/database.php
 
 # Jika kamu punya folder vendor dari Composer (opsional)
 /vendor/
