@@ -1,0 +1,14 @@
+# Mengabaikan file koneksi database (Sangat Penting!)
+conection/koneksi.php
+config/config.php
+
+# Jika kamu punya folder vendor dari Composer (opsional)
+/vendor/
+
+# Mengabaikan file sistem operasi
+.DS_Store
+Thumbs.db
+
+# Mengabaikan file environment atau log jika ada
+.env
+*.log
