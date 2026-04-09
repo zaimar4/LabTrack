@@ -54,7 +54,8 @@ Buka phpMyAdmin
 Buat database baru, misalnya:
 labtrack
 Import file database (.sql) jika tersedia
-3. Buat File Koneksi Database
+atau gunakan sql dari databaseschema.text yang tersedia
+4. Buat File Koneksi Database
 
 Buat folder dan file berikut jika belum ada:
 
