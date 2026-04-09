@@ -45,7 +45,7 @@ Cara Menjalankan Project
 Karena folder config atau file koneksi database tidak di-push ke repository, lakukan langkah berikut setelah melakukan clone.
 
 1. Clone Repository
-git clone https://github.com/username/labtrack.git
+git clone https://github.com/zaimar4/LabTrack
 
 Pindahkan folder project ke dalam folder htdocs jika menggunakan XAMPP.
 
