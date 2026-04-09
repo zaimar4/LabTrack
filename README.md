@@ -73,11 +73,7 @@ if (!$conn) {
 
 Sesuaikan nama database jika berbeda.
 
-4. Jalankan di Browser
+4. Jalankan di Browser dan server anda masing masing
 
-Buka browser dan akses:
-
-http://localhost/labtrack
-Catatan
 
 Project ini dibuat sebagai tugas mata pelajaran Basis Data untuk melatih perancangan database, relasi antar tabel, implementasi CRUD, serta manajemen role menggunakan PHP Native tanpa framework.
