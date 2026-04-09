@@ -1,0 +1,49 @@
+CREATE DATABASE IF NOT EXISTS lab_peminjaman CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE lab_peminjaman;
+ 
+-- Table: users
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('siswa', 'petugas') NOT NULL DEFAULT 'siswa',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+ 
+-- Table: barang
+CREATE TABLE IF NOT EXISTS barang (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_barang VARCHAR(150) NOT NULL,
+    deskripsi TEXT,
+    stok INT NOT NULL DEFAULT 0,
+    kategori VARCHAR(50) DEFAULT 'Umum',
+    gambar VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+ 
+-- Table: peminjaman
+CREATE TABLE IF NOT EXISTS peminjaman (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    status ENUM('pending', 'approved', 'borrowed', 'returned', 'rejected') NOT NULL DEFAULT 'pending',
+    tanggal_pinjam DATE NOT NULL,
+    tanggal_kembali DATE,
+    tanggal_dikembalikan DATE,
+    catatan TEXT,
+    catatan_petugas TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+ 
+-- Table: peminjaman_detail
+CREATE TABLE IF NOT EXISTS peminjaman_detail (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    peminjaman_id INT NOT NULL,
+    barang_id INT NOT NULL,
+    jumlah INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (peminjaman_id) REFERENCES peminjaman(id) ON DELETE CASCADE,
+    FOREIGN KEY (barang_id) REFERENCES barang(id) ON DELETE RESTRICT
+) ENGINE=InnoDB;

@@ -102,7 +102,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </button>
         </form>
 
-        <div class="login-footer">
+        <div style="text-align:center;margin:1.25rem 0;position:relative;color:var(--text-muted);font-size:0.8rem">
+            <span style="position:relative;z-index:1;background:var(--bg-card);padding:0 0.75rem">belum punya akun?</span>
+            <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:0"></div>
+        </div>
+
+        <a href="<?= BASE_URL ?>/auth/register.php" class="btn btn-secondary w-full" style="text-align:center;justify-content:center">
+            Daftar Akun Baru
+        </a>
+
+        <div class="login-footer" style="margin-top:1.25rem">
             <p>Demo: <strong>petugas@lab.sch.id</strong> atau <strong>budi@siswa.sch.id</strong></p>
             <p style="margin-top:0.3rem">Password: <strong>password</strong></p>
         </div>

@@ -4,10 +4,8 @@ include '../conection/conection.php';
 if(isset($_POST['register'])) { 
     $username = $_POST['username']; 
     $email = $_POST['email']; 
-    // Mengamankan password
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT); 
  
-    // Cek apakah data kosong sebelum menjalankan query
     if(empty($email) || empty($username) || empty($_POST["password"])) { 
         echo " 
             <script> 
@@ -16,8 +14,6 @@ if(isset($_POST['register'])) {
             </script> 
         "; 
     } else {
-        // PERBAIKAN DI SINI: Sebutkan kolom yang ingin diisi saja
-        // id_user (auto) dan role (default 'user') tidak perlu ditulis
         $sql = "INSERT INTO users (email, password, username) 
                 VALUES ('$email', '$password', '$username')"; 
 
@@ -29,7 +25,6 @@ if(isset($_POST['register'])) {
                 </script> 
             "; 
         } else { 
-            // Menampilkan error asli dari MySQL jika gagal (untuk debug)
             echo "Error: " . mysqli_error($conn);
         }
     }
